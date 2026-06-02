@@ -11,6 +11,14 @@ export default function CicCadastro({ onComplete }) {
     onComplete();
   };
 
+  const resetarCadastro = () => {
+    if (confirm("Isso apagará seus dados atuais. Tem certeza?")) {
+      localStorage.removeItem("cic_usuario");
+      alert("Dados removidos. A página será atualizada.");
+      window.location.reload();
+    }
+  };
+
   return (
     <div style={{ padding: "40px 20px", background: "#080810", minHeight: "100vh", color: "#F4F1EB", fontFamily: "'DM Sans', sans-serif" }}>
       <h1 style={{ color: "#FF4D1C", fontSize: 24 }}>Configuração Inicial 🚕</h1>
@@ -25,6 +33,10 @@ export default function CicCadastro({ onComplete }) {
         
         <button onClick={salvar} style={buttonStyle}>Confirmar e Iniciar</button>
       </div>
+
+      <p onClick={resetarCadastro} style={{ textAlign: 'center', fontSize: 12, color: "#444", marginTop: 40, cursor: "pointer", textDecoration: "underline" }}>
+        Esqueci meus dados / Resetar perfil
+      </p>
     </div>
   );
 }
