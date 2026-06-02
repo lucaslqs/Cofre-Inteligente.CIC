@@ -39,8 +39,8 @@ export default function CICChat() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": "Bearer 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"
-        },
+          "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
+
         body: JSON.stringify({
           model: "llama3-8b-8192",
           messages: [
